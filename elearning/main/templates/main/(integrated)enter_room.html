@@ -1,0 +1,26 @@
+<!-- templates/main/enter_room.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Chat Room</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        input[type="text"] { width: 300px; padding: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Enter Chat Room</h2>
+    <input type="text" id="room-name" placeholder="Room Name">
+    <button id="enter-room">Enter Room</button>
+
+    <script>
+        document.getElementById('enter-room').onclick = function() {
+            const roomName = document.getElementById('room-name').value;
+            window.location.href = `/chat/${roomName}/`;
+        };
+    </script>
+</body>
+</html>

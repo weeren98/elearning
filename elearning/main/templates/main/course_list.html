@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h1>Courses</h1>
+        <ul class="list-group">
+            {% for course in courses %}
+                <li class="list-group-item">
+                    <a href="{% url 'course_detail' course.id %}">{{ course.title }}</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No courses available.</li>
+            {% endfor %}
+        </ul>
+
+        {% if user.user_type == 'teacher'%}
+            <a href="{% url 'create_course' %}" class="btn btn-primary mt-3">Create New Course</a>
+        {% endif %}
+    </div>
+</body>
+</html>
